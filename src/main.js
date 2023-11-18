@@ -99,6 +99,9 @@ import TreeSelect from 'primevue/treeselect';
 import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 import VirtualScroller from 'primevue/virtualscroller';
+import { createI18n } from 'vue-i18n'
+import { translate as faTranslates } from '@/datasource/I18n/fa'
+import { translate as enTranslates } from '@/datasource/I18n/en'
 
 import BlockViewer from '@/components/BlockViewer.vue';
 
@@ -106,6 +109,16 @@ import '@/assets/styles.scss';
 
 const app = createApp(App);
 
+const i18n = createI18n({
+  allowComposition: true,
+  locale: 'fa',
+  messages: {
+    fa: faTranslates,
+    en: enTranslates,
+  }
+})
+
+app.use(i18n)
 app.use(router);
 app.use(PrimeVue, { ripple: true });
 app.use(ToastService);
@@ -210,3 +223,4 @@ app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('VirtualScroller', VirtualScroller);
 
 app.mount('#app');
+
