@@ -4,5 +4,5 @@
 
 <template>
   <div class="grid">
-    dashboard
+    File
 </div></template>

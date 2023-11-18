@@ -4,5 +4,5 @@
 
 <template>
   <div class="grid">
-    dashboard
+    profile
 </div></template>
