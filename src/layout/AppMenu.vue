@@ -1,14 +1,16 @@
 <script setup>
-import { ref } from 'vue';
-
+import { computed } from 'vue';
 import AppMenuItem from './AppMenuItem.vue';
+import { useI18n } from 'vue-i18n'
 
-const model = ref([
+const { t } = useI18n()
+
+const model = computed(() => [
   {
     label: 'Home',
     items: [
-      { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
-      { label: 'Profile', icon: 'pi pi-fw pi-id-card', to: '/profile' },
+      { label: t('dashboard'), icon: 'pi pi-fw pi-home', to: '/' },
+      { label: t('profile'), icon: 'pi pi-fw pi-id-card', to: '/profile' },
       { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/message' },
       { label: 'File', icon: 'pi pi-fw pi-file', to: '/file' },
     ]
