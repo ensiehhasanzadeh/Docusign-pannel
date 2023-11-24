@@ -1,21 +1,32 @@
+import { useUserStore } from '@/stores/user'
 import { getDeferedPromise } from '@/utils'
 
 interface HttpMeta {
   body?: any
   method?: 'GET' | 'POST'
-  encryption?: boolean
   headers?: Record<string, string>
   formData?: boolean
+}
+
+function encodeFormData(body: any) {
+  const data = new FormData()
+
+  for (const key in body) {
+    data.append(key, body[key])
+  }
+
+  return data
 }
 
 export async function httpRequest<T>(path: string, meta: HttpMeta = {}): Promise<T> {
   const deferred = getDeferedPromise()
   const formData = meta.formData || false
   const method = meta.method || 'GET'
-  const token = await Profile.getToken()
+  const { getToken } = useUserStore()
+  const token = await getToken()
   const request = new XMLHttpRequest()
 
-  request.open(method, `${AppConfig.BaseAPI}${path}`, true)
+  request.open(method, `${AppConfig.BaseAPI}/v1${path}`, true)
 
   if (!formData) {
     request.setRequestHeader('Content-Type', 'application/octet-stream')
@@ -33,7 +44,7 @@ export async function httpRequest<T>(path: string, meta: HttpMeta = {}): Promise
 
   request.onload = async function () {
     if (this.status === 401) {
-      Profile.logout()
+      // Profile.logout()
       return
     }
 
@@ -56,13 +67,21 @@ export async function httpRequest<T>(path: string, meta: HttpMeta = {}): Promise
     deferred.reject(new Error('Network Error'))
   }
 
-  request.send(meta.body)
+  let packedBody
+  if (meta.formData) {
+    packedBody = encodeFormData(meta.body)
+  } else {
+    packedBody = JSON.stringify(meta.body)
+  }
+
+  request.send(packedBody)
 
   return deferred.promise
 }
 export function httpPost<T>(api: string, body?: object): Promise<T> {
   return httpRequest<T>(api, {
     method: 'POST',
+    formData: true,
     body,
   })
 }

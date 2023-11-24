@@ -4,21 +4,24 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import rtlCss from 'postcss-rtlcss'
 
-const BASE_API = 'http://135.148.144.186:8000/api/v1'
+const BASE_API = 'http://135.148.144.186:8000'
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
     return {
-        define:{
-            'AppConfig.BaseAPI': JSON.stringify(isDevelopment ? '/api' : BASE_API),
+        define: {
+            'AppConfig.BaseAPI': JSON.stringify('/api'),
         },
-        server:{
+        server: {
+            // cors: {
+                
+            // },
             proxy:{
                 '/api': {
                     target: BASE_API,
                     changeOrigin: true,
                     secure: false,
-                    rewrite: {'^/api': ''}
+                    // rewrite: {'^/api': ''}
                 }
             }
         },
