@@ -102,12 +102,15 @@ import VirtualScroller from 'primevue/virtualscroller';
 import { createI18n } from 'vue-i18n'
 import { translate as faTranslates } from '@/datasource/I18n/fa'
 import { translate as enTranslates } from '@/datasource/I18n/en'
+import { createPinia } from 'pinia'
 
 import BlockViewer from '@/components/BlockViewer.vue';
 
 import '@/assets/styles.scss';
 
 const app = createApp(App);
+
+const pinia = createPinia()
 
 const i18n = createI18n({
   allowComposition: true,
@@ -124,6 +127,7 @@ app.use(PrimeVue, { ripple: true });
 app.use(ToastService);
 app.use(DialogService);
 app.use(ConfirmationService);
+app.use(pinia);
 
 app.directive('tooltip', Tooltip);
 app.directive('badge', BadgeDirective);
