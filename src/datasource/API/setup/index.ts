@@ -24,6 +24,7 @@ export async function httpRequest<T>(path: string, meta: HttpMeta = {}): Promise
   const method = meta.method || 'GET'
   const { getToken } = useUserStore()
   const token = await getToken()
+  
   const request = new XMLHttpRequest()
 
   request.open(method, `${AppConfig.BaseAPI}/v1${path}`, true)
@@ -32,7 +33,7 @@ export async function httpRequest<T>(path: string, meta: HttpMeta = {}): Promise
     request.setRequestHeader('Content-Type', 'application/octet-stream')
   }
   if (token) {
-    request.setRequestHeader('Authorization', `Bearer ${token}`)
+    request.setRequestHeader('Authorization', `Token ${token}`)
   }
 
   if (meta.headers) {
