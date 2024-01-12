@@ -20,13 +20,6 @@ function register() {
   });
 }
 
-function changePassword() {
-  user.changePassword({
-    old_password: "1234",
-    new_password: "9876",
-  });
-}
-
 async function contractList() {
   const result = await contract.list();
   console.log(result);
@@ -34,13 +27,14 @@ async function contractList() {
 </script>
 
 <template>
-  <div class="">
-    {{ t("hello") }}
+  <div>
     <router-link to="/login">
       <Button label="Login" class="m-2" />
     </router-link>
     <Button label="Register" class="m-2" @click="register" />
-    <Button label="Change Password" class="m-2" @click="changePassword" />
+    <router-link to="/change-password">
+      <Button label="Change Password" class="m-2" />
+    </router-link>
     <Button label="Contract List" class="m-2" @click="contractList" />
   </div>
 </template>
