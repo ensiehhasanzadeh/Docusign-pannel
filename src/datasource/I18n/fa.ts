@@ -3,5 +3,15 @@ export const translate = {
   buttons: "دکمه ها",
   logout: "خروج از حساب کاربری",
   dashboard: "داشبورد",
-  profile: "پروفایل"
-}
+  profile: "پروفایل",
+  welcomeToDocusign: "به داکیوساین خوش آمدید",
+  signInToContinue: "برای ادامه وارد شوید",
+  username: "نام کاربری",
+  password: "رمز عبور",
+  rememberMe: "مرا به خاطر بسپار",
+  forgotPassword: "رمز عبور را فراموش کرده‌اید؟",
+  signIn: "ورود",
+  confirm: "تایید",
+  phoneNumber: "شماره موبایل",
+  PasswordRecovery: "بازیابی رمز عبور",
+};

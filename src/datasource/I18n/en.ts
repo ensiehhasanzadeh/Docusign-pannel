@@ -3,5 +3,15 @@ export const translate = {
   buttons: "Buttons",
   logout: "Log Out",
   dashboard: "Dashboard",
-  profile: "Profile"
-}
+  profile: "Profile",
+  welcomeToDocusign: "Welcome to Docusign",
+  signInToContinue: "Sign in to continue",
+  username: "Username",
+  password: "Password",
+  rememberMe: "Remember me",
+  forgotPassword: "Forgot password?",
+  signIn: "Sign in",
+  confirm: "Confirm",
+  phoneNumber: "Phone number",
+  PasswordRecovery: "Password recovery",
+};
