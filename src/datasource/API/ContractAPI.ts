@@ -129,3 +129,38 @@ export interface API_Contract_Details_Output {
 export function API_Contract_Details(id: number) {
   return httpRequest<API_Contract_Details_Output>(`/contracts/detail/${id}`, { method: 'GET' })
 }
+
+export interface API_Contract_Leave_Output {
+  /** پیام */
+  message: string
+}
+
+export function API_Contract_Leave(id: number) {
+  return httpRequest<API_Contract_Leave_Output>(`/contracts/leave/${id}`, { method: 'GET' })
+}
+
+export interface API_Contract_AddMembers_Input {
+  id: number
+  users: {
+    username: string,
+    role: number
+  }[]
+}
+
+export interface API_Contract_AddMembers_Output {
+  message: string
+  not_found_users: string[]
+}
+
+export function API_Contract_AddMembers(body: API_Contract_AddMembers_Input) {
+  return httpRequest<API_Contract_AddMembers_Output>(`/contracts/add/${body.id}`, { body, method: 'POST' })
+}
+
+export interface API_Contract_Confirm_Output {
+  /** پیام */
+  message: string
+}
+
+export function API_Contract_Confirm(id: number) {
+  return httpRequest<API_Contract_Confirm_Output>(`/contracts/confirm/${id}`, { method: 'GET' })
+}

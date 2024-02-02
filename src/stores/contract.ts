@@ -8,7 +8,10 @@ import {
   API_Contract_Edit,
   API_Contract_Sign_Input,
   API_Contract_Sign,
-  API_Contract_Details
+  API_Contract_Details,
+  API_Contract_Leave,
+  API_Contract_AddMembers_Input,
+  API_Contract_AddMembers
 } from "@/datasource/API/ContractAPI"
 import { defineStore } from "pinia"
 
@@ -38,5 +41,27 @@ export const useContractStore = defineStore('contract', () => {
     return API_Contract_Details(id)
   }
 
-  return { list, create, deleteContract, sign, getDetails }
+  function leave(id: number) {
+    return API_Contract_Leave(id)
+  }
+
+  function addMembers(body: API_Contract_AddMembers_Input) {
+    return API_Contract_AddMembers(body)
+  }
+
+  function confirm(id: number) {
+    return API_Contract_Leave(id)
+  }
+
+  return {
+    list,
+    create,
+    deleteContract,
+    edit,
+    sign,
+    getDetails,
+    leave,
+    addMembers,
+    confirm
+  }
 })
