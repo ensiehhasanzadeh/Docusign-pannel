@@ -63,3 +63,35 @@ export interface API_Auth_ChangePassword_Input {
 export function API_User_ChangePassword(body: API_Auth_ChangePassword_Input) {
   return httpRequest('/auth/change-password/', { body, method: 'POST' })
 }
+
+export interface API_Auth_SendOTP_Input {
+  /** دلیل */
+  reason: 2
+}
+
+export interface API_Auth_SendOTP_Output {
+  /** پیام */
+  message: string
+  /** آیدی احراز هویت */
+  ver_id: number
+}
+
+export function API_User_SendOTP(body: API_Auth_SendOTP_Input) {
+  return httpRequest<API_Auth_SendOTP_Output>('/auth/sms-verification-request/', { body, method: 'GET' })
+}
+
+export interface API_Auth_PhoneVerification_Input {
+  /** آیدی احراز هویت */
+  ver_id: number
+  /** کد تاییدیه */
+  ver_code: string
+}
+
+export interface API_Auth_PhoneVerification_Output {
+  /** پیام */
+  message: string
+}
+
+export function API_User_PhoneVerification(body: API_Auth_PhoneVerification_Input) {
+  return httpRequest<API_Auth_PhoneVerification_Output>('/auth/phone-number-verification/', { body, method: 'GET' })
+}

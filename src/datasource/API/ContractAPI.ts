@@ -1,7 +1,13 @@
 import { httpRequest } from "./setup";
 
 export interface API_Contract_List_Output {
-  contracts: []
+  contracts: {
+    id: number,
+    title: string,
+    content: string,
+    deleted: boolean,
+    role: number
+  }[]
 }
 
 export function API_Contract_List() {
