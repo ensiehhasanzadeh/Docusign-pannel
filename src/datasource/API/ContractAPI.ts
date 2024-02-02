@@ -62,3 +62,21 @@ export interface API_Contract_Delete_Output {
 export function API_Contract_Delete(body: API_Contract_Delete_Input) {
   return httpRequest<API_Contract_Delete_Output>('/contracts/contract/delete/', { body, method: 'POST' })
 }
+
+export interface API_Contract_Edit_Input {
+  /** شناسه قرارداد */
+  contract_id: number
+  /** عنوان جدید قرارداد */
+  contract_title: string
+  /** محتوای جدید قرارداد */
+  contract_content: string
+}
+
+export interface API_Contract_Edit_Output {
+  /** پیام */
+  message: string
+}
+
+export function API_Contract_Edit(body: API_Contract_Edit_Input) {
+  return httpRequest<API_Contract_Edit_Output>('/contracts/contract/edit/', { body, method: 'POST' })
+}
