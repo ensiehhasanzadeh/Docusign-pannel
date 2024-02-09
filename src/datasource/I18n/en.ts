@@ -3,5 +3,10 @@ export const translate = {
   buttons: "Buttons",
   logout: "Log Out",
   dashboard: "Dashboard",
-  profile: "Profile"
+  profile: "Profile",
+  welcome: "Welcome",
+  username: "UserName",
+  password: "Password",
+  forgotPassword: "Forgot your password?",
+  signIn: "Sign In",
 }
