@@ -4,6 +4,7 @@ import AppConfig from '@/layout/AppConfig.vue';
 import { useI18n } from 'vue-i18n'
 import { useUserStore } from '@/stores/user';
 import { useRouter } from 'vue-router';
+import BaseButton from '@/components/BaseButton.vue'
 
 const { t } = useI18n()
 const user = useUserStore()
@@ -47,7 +48,7 @@ async function login() {
                 href="http://localhost:5173/#/auth/forgot-password" style="color: var(--primary-color)">{{
                   t('forgotPassword') }}</a>
             </div>
-            <Button @click="login" :label="t('signIn')" class="w-full p-3 text-xl"></Button>
+            <BaseButton :action="login" :label="t('signIn')" class="w-full p-3 text-xl"></BaseButton>
           </div>
         </div>
       </div>
