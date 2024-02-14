@@ -24,9 +24,9 @@ const router = createRouter({
           component: () => import('@/views/Profile.vue')
         },
         {
-          path: '/message',
-          name: 'message',
-          component: () => import('@/views/Messages.vue')
+          path: '/contracts',
+          name: 'contracts',
+          component: () => import('@/views/Contracts.vue')
         },
         {
           path: '/file',

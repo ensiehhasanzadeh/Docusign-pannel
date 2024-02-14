@@ -4,5 +4,5 @@
 
 <template>
   <div class="grid">
-    Messages
+    Contracts
 </div></template>

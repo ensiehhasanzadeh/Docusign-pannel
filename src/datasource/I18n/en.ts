@@ -9,4 +9,5 @@ export const translate = {
   password: "Password",
   forgotPassword: "Forgot your password?",
   signIn: "Sign In",
+  contracts: "Contracts"
 }
