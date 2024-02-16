@@ -9,4 +9,8 @@ export const translate = {
   password: "رمز عبور",
   forgotPassword: "رمز عبور خود را فراموش کرده اید؟",
   signIn: "ورود",
+  contracts: "قرارداد ها",
+  showDetails: "مشاهده جزئیات",
+  notHaveContract: "شما قراردادی ندارید!!!",
+  writeContract: "نوشتن قرارداد"
 }
