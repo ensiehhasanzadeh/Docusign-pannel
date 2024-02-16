@@ -20,7 +20,7 @@ const { state: details, isLoading } = useAsyncState(async () => {
 </script>
 
 <template>
-  <div v-if="!isLoading" class="card w-full flex-grow-1">
+  <div v-if="!isLoading" class="card w-full flex-grow-1 lg:mx-4">
     <div>{{ details.title }}</div>
   </div>
 </template>
