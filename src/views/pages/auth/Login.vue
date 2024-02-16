@@ -45,7 +45,7 @@ async function login() {
 
             <div class="flex align-items-center justify-content-between mb-5 gap-5">
               <a class="font-medium no-underline ml-2 text-right cursor-pointer"
-                href="http://localhost:5173/#/auth/forgot-password" style="color: var(--primary-color)">{{
+                href="#/reset-password" style="color: var(--primary-color)">{{
                   t('forgotPassword') }}</a>
             </div>
             <BaseButton :action="login" :label="t('signIn')" class="w-full p-3 text-xl"></BaseButton>
