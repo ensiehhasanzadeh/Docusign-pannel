@@ -15,5 +15,6 @@ export const translate = {
   writeContract: "Writing contract",
   clause: "Clause {0}",
   remark: "Remark {0}",
-  projectName: "Docusign"
+  projectName: "Docusign",
+  language: "English"
 }
