@@ -22,5 +22,10 @@ export const translate = {
   clause: "بند {0}",
   remark: "تبصره {0}",
   projectName: "داکیوساین",
-  language: "فارسی"
+  language: "فارسی",
+  resetPasswordDescription: "برای ارسال کد تاییدیه، نام کاربری و شماره موبایل خود را وارد کنید",
+  sendOTPToN: "کد تاییدیه به شماره {0} ارسال شد",
+  enterUsername: "لطفا نام کاربری خود را وارد کنید",
+  enterPassword: "لطفا رمز عبور خود را وارد کنید",
+  enterMobile: "لطفا شماره موبایل خود را وارد کنید"
 }

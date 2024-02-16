@@ -17,8 +17,11 @@ import {
 import { KV_User_GetToken, KV_User_SetToken } from '@/datasource/KV/UserKV'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { useI18n } from "vue-i18n";
 
 export const useUserStore = defineStore('user', () => {
+  
+const { t } = useI18n();
 
   /** توکن */
   const token = ref('')
@@ -42,6 +45,12 @@ export const useUserStore = defineStore('user', () => {
   }
 
   async function login(body: API_Auth_GetToken_Input) {
+    if(!body.username){
+      throw new Error(t('enterUsername'))
+    }
+    if(!body.password){
+      throw new Error(t('enterPassword'))
+    }
     const result = await API_User_Login(body)
     setToken(result.token)
     return result
@@ -52,6 +61,12 @@ export const useUserStore = defineStore('user', () => {
   }
 
   function resetPassword(body: API_Auth_ResetPassword_Input) {
+    if(!body.username){
+      throw new Error(t('enterUsername'))
+    }
+    if(!body.phone_number){
+      throw new Error(t('enterMobile'))
+    }
     return API_User_ResetPassword(body)
   }
 

@@ -1,5 +1,7 @@
 import { useUserStore } from '@/stores/user'
 import { getDeferedPromise } from '@/utils'
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
 
 interface HttpMeta {
   body?: any
@@ -24,7 +26,7 @@ export async function httpRequest<T>(path: string, meta: HttpMeta = {}): Promise
   const method = meta.method || 'GET'
   const { getToken } = useUserStore()
   const token = await getToken()
-  
+
   const request = new XMLHttpRequest()
 
   request.open(method, `${AppConfig.BaseAPI}/v1${path}`, true)
@@ -89,4 +91,9 @@ export function httpPost<T>(api: string, body?: object): Promise<T> {
 
 export function httpGet<T>(api: string): Promise<T> {
   return httpRequest<T>(api)
+}
+
+export function handleCommonError(error: any, toast: Toast) {
+  console.error(error)
+  toast.add({ severity: 'error', summary: error.message, life: 3000 });
 }

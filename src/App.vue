@@ -3,7 +3,7 @@ import { useUserStore } from './stores/user';
 
 const user = useUserStore()
 
-async function setup(){
+async function setup() {
   await user.init()
 }
 
@@ -12,6 +12,7 @@ setup()
 </script>
 
 <template>
+  <Toast />
   <router-view />
 </template>
 

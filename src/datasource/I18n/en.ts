@@ -22,5 +22,10 @@ export const translate = {
   clause: "Clause {0}",
   remark: "Remark {0}",
   projectName: "Docusign",
-  language: "English"
+  language: "English",
+  resetPasswordDescription: "Enter your username and mobile number to send the verification code",
+  sendOTPToN: "The confirmation code was sent to {0}",
+  enterUsername: "Please enter your username",
+  enterPassword: "Please enter your password",
+  enterMobile: "Please enter your mobile"
 }
