@@ -1,122 +1,60 @@
-<script setup>
-import { useLayout } from "@/layout/composables/layout";
-import { ref, computed } from "vue";
-import { useI18n } from "vue-i18n";
+<script setup lang="ts">
+import { ref } from 'vue';
+import AppConfig from '@/layout/AppConfig.vue';
+import { useI18n } from 'vue-i18n'
+import { useUserStore } from '@/stores/user';
+import { useRouter } from 'vue-router';
+import BaseButton from '@/components/BaseButton.vue'
 
-const { t } = useI18n();
-const { layoutConfig } = useLayout();
-const username = ref("");
-const password = ref("");
-const checked = ref(false);
+const { t } = useI18n()
+const user = useUserStore()
+const router = useRouter();
 
-const logoUrl = computed(() => {
-  return `layout/images/${
-    layoutConfig.darkTheme.value ? "logo-white" : "logo-dark"
-  }.svg`;
-});
+const username = ref('');
+const password = ref('');
 
-function login() {
-  user.login({
-    username: "ensieh",
-    password: "1234",
-  });
+async function login() {
+  await user.login({
+    username: username.value,
+    password: password.value
+  })
+  router.push('/')
 }
+
 </script>
 
 <template>
-  <div
-    class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden"
-  >
+  <div class="surface-ground flex align-items-center justify-content-center mt-5 overflow-hidden">
     <div class="flex flex-column align-items-center justify-content-center">
-      <img :src="logoUrl" alt="Sakai logo" class="mb-5 w-6rem flex-shrink-0" />
       <div
-        style="
-          border-radius: 56px;
-          padding: 0.3rem;
-          background: linear-gradient(
-            180deg,
-            var(--primary-color) 10%,
-            rgba(33, 150, 243, 0) 30%
-          );
-        "
-      >
-        <div
-          class="w-full surface-card py-8 px-5 sm:px-8"
-          style="border-radius: 53px"
-        >
+        style="border-radius: 56px; padding: 0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%)">
+        <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px">
           <div class="text-center mb-5">
-            <img
-              src="/demo/images/login/avatar.png"
-              alt="Image"
-              height="50"
-              class="mb-3"
-            />
-            <div class="text-900 text-3xl font-medium mb-3">
-              {{ t("welcomeToDocusign") }}
-            </div>
-            <span class="text-600 font-medium">
-              {{ t("signInToContinue") }}</span
-            >
+            <img src="@/assets/images/ds.png" alt="Image" height="50" class="mb-3" />
+            <div class="text-900 text-3xl font-medium mb-3">{{ t('welcome') }}!</div>
           </div>
+
           <div>
-            <label
-              for="username1"
-              class="block text-900 text-xl font-medium mb-2"
-              >{{ t("username") }}</label
-            >
-            <InputText
-              id="username1"
-              type="text"
-              placeholder="username"
-              class="w-full md:w-30rem mb-5"
-              style="padding: 1rem"
-              v-model="username"
-            />
+            <label for="username1" class="block text-900 text-xl font-medium mb-2">{{ t('username') }}</label>
+            <InputText id="username1" type="text" :placeholder="t('username')" class="w-full md:w-30rem mb-5"
+              style="padding: 1rem" v-model="username" />
 
-            <label
-              for="password1"
-              class="block text-900 font-medium text-xl mb-2"
-              >{{ t("password") }}</label
-            >
-            <Password
-              id="password1"
-              v-model="password"
-              placeholder="Password"
-              :toggleMask="true"
-              class="w-full mb-3"
-              inputClass="w-full"
-              :inputStyle="{ padding: '1rem' }"
-            ></Password>
+            <label for="password1" class="block text-900 font-medium text-xl mb-2">{{ t('password') }}</label>
+            <Password id="password1" v-model="password" :placeholder="t('password')" :toggleMask="true"
+              class="w-full mb-3" inputClass="w-full" :inputStyle="{ padding: '1rem' }"></Password>
 
-            <div
-              class="flex align-items-center justify-content-between mb-5 gap-5"
-            >
-              <div class="flex align-items-center">
-                <Checkbox
-                  v-model="checked"
-                  id="rememberme1"
-                  binary
-                  class="mr-2"
-                ></Checkbox>
-                <label for="rememberme1">{{ t("rememberMe") }}</label>
-              </div>
-              <router-link
-                class="font-medium no-underline ml-2 text-right cursor-pointer"
-                style="color: var(--primary-color)"
-                to="/reset-password"
-                >{{ t("forgotPassword") }}</router-link
-              >
+            <div class="flex align-items-center justify-content-between mb-5 gap-5">
+              <a class="font-medium no-underline ml-2 text-right cursor-pointer"
+                href="http://localhost:5173/#/auth/forgot-password" style="color: var(--primary-color)">{{
+                  t('forgotPassword') }}</a>
             </div>
-            <Button
-              :label="t('signIn')"
-              class="w-full p-3 text-xl"
-              @click="login"
-            ></Button>
+            <BaseButton :action="login" :label="t('signIn')" class="w-full p-3 text-xl"></BaseButton>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <AppConfig simple />
 </template>
 
 <style scoped>

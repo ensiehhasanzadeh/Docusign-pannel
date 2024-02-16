@@ -14,4 +14,13 @@ export const translate = {
   confirm: "تایید",
   phoneNumber: "شماره موبایل",
   PasswordRecovery: "بازیابی رمز عبور",
-};
+  welcome: "خوش آمدید",
+  contracts: "قرارداد ها",
+  showDetails: "مشاهده جزئیات",
+  notHaveContract: "شما قراردادی ندارید!!!",
+  writeContract: "نوشتن قرارداد",
+  clause: "بند {0}",
+  remark: "تبصره {0}",
+  projectName: "داکیوساین",
+  language: "فارسی"
+}

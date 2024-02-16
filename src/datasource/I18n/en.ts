@@ -14,4 +14,13 @@ export const translate = {
   confirm: "Confirm",
   phoneNumber: "Phone number",
   PasswordRecovery: "Password recovery",
-};
+  welcome: "Welcome",
+  contracts: "Contracts",
+  showDetails: "Show details",
+  notHaveContract:"You do not have a contract!!!",
+  writeContract: "Writing contract",
+  clause: "Clause {0}",
+  remark: "Remark {0}",
+  projectName: "Docusign",
+  language: "English"
+}

@@ -14,14 +14,24 @@ const router = createRouter({
           component: () => import("@/views/Dashboard.vue"),
         },
         {
-          path: "/profile",
-          name: "profile",
-          component: () => import("@/views/Profile.vue"),
+          path: '/auth/forgot-password',
+          name: 'dashboard',
+          component: () => import('@/views/Dashboard.vue')
         },
         {
-          path: "/message",
-          name: "message",
-          component: () => import("@/views/Messages.vue"),
+          path: '/profile',
+          name: 'profile',
+          component: () => import('@/views/Profile.vue')
+        },
+        {
+          path: '/contracts',
+          name: 'contracts',
+          component: () => import('@/views/Contracts.vue')
+        },
+        {
+          path: '/contract-detail/:id',
+          name: 'contract-detail',
+          component: () => import('@/views/Contract-detail.vue')
         },
         {
           path: "/file",
