@@ -27,5 +27,10 @@ export const translate = {
   sendOTPToN: "The confirmation code was sent to {0}",
   enterUsername: "Please enter your username",
   enterPassword: "Please enter your password",
-  enterMobile: "Please enter your mobile"
+  enterMobile: "Please enter your mobile",
+  changePassword: "Change password",
+  currentPassword: "Current password",
+  newPassword: "New password",
+  enterOldPassword: "Please enter your current password",  
+  enterNewPassword: "Please enter new password"
 }

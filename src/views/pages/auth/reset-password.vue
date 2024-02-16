@@ -5,7 +5,6 @@ import { useI18n } from "vue-i18n"
 import { useRouter } from "vue-router"
 import BaseButton from '@/components/BaseButton.vue'
 import { useUserStore } from '@/stores/user'
-import { handleCommonError } from "@/datasource/API/setup"
 
 const { t } = useI18n()
 const { layoutConfig } = useLayout()
@@ -46,7 +45,7 @@ function closeDialog() {
             rgba(33, 150, 243, 0) 30%
           );
         ">
-        <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px">
+        <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px; max-width: 560px;">
           <div class="text-center mb-5">
             <img src="@/assets/images/ds.png" alt="Image" height="50" class="mb-3" />
             <div class="text-900 text-xl font-medium mb-3">{{ t('resetPasswordDescription') }}</div>

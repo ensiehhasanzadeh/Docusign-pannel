@@ -74,6 +74,12 @@ export const useUserStore = defineStore('user', () => {
   }
 
   function changePassword(body: API_Auth_ChangePassword_Input) {
+    if (!body.old_password) {
+      throw new Error(t('enterOldPassword'))
+    }
+    if (!body.new_password) {
+      throw new Error(t('enterNewPassword'))
+    }
     return API_User_ChangePassword(body)
   }
 

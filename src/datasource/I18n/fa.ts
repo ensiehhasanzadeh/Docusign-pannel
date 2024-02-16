@@ -27,5 +27,10 @@ export const translate = {
   sendOTPToN: "کد تاییدیه به شماره {0} ارسال شد",
   enterUsername: "لطفا نام کاربری خود را وارد کنید",
   enterPassword: "لطفا رمز عبور خود را وارد کنید",
-  enterMobile: "لطفا شماره موبایل خود را وارد کنید"
+  enterMobile: "لطفا شماره موبایل خود را وارد کنید",
+  changePassword: "ویرایش رمز عبور",
+  currentPassword: "رمز عبور فعلی",
+  newPassword: "رمز عبور جدید",
+  enterOldPassword: "لطفا رمز عبور فعلی خود را وارد کنید",  
+  enterNewPassword: "لطفا رمز عبور جدید را وارد کنید"
 }
