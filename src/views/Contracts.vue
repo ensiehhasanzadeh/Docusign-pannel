@@ -22,7 +22,7 @@ const isListEmpty = computed(() => !contracts.value.contracts.length)
   <div class="flex flex-column px-3">
     <div class="text-3xl mb-4">{{ t('contracts') }}</div>
     <div v-if="!isLoading">
-      <div v-if="!isListEmpty" class="card flex flex-column align-items-center justify-items-center">
+      <div v-if="isListEmpty" class="card flex flex-column align-items-center justify-items-center">
         <img src="@/assets/images/contract.png" alt="no-contract" class="mb-1 sm:mb-3 w-4 border-round" />
         <div class="text-2xl">{{ t('notHaveContract') }}</div>
           <BaseButton :label="t('writeContract')" class="mt-3" @click="" />
