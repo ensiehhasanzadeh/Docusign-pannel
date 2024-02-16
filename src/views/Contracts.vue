@@ -4,9 +4,11 @@ import { useContractStore } from '@/stores/contract';
 import { useAsyncState } from '@vueuse/core'
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
 
 const { t } = useI18n()
 const contract = useContractStore()
+const router = useRouter()
 
 const { state: contracts, isLoading } = useAsyncState(async () => {
   const result = await contract.list()
@@ -15,6 +17,12 @@ const { state: contracts, isLoading } = useAsyncState(async () => {
 
 
 const isListEmpty = computed(() => !contracts.value.contracts.length)
+
+function goTODetails(id: number) {
+  router.push({
+    path: `/contract-detail/${id}`,
+  })
+}
 
 </script>
 
@@ -25,7 +33,7 @@ const isListEmpty = computed(() => !contracts.value.contracts.length)
       <div v-if="isListEmpty" class="card flex flex-column align-items-center justify-items-center">
         <img src="@/assets/images/contract.png" alt="no-contract" class="mb-1 sm:mb-3 w-4 border-round" />
         <div class="text-2xl">{{ t('notHaveContract') }}</div>
-          <BaseButton :label="t('writeContract')" class="mt-3" @click="" />
+        <BaseButton :label="t('writeContract')" class="mt-3" @click="" />
       </div>
       <div v-else>
         <div v-for="contract in contracts.contracts" :key="contract.id" class="card w-full md:flex md:align-items-center">
@@ -36,7 +44,8 @@ const isListEmpty = computed(() => !contracts.value.contracts.length)
               <div class="truncate-multiline-3 mt-1">{{ contract.content }}</div>
             </div>
           </div>
-          <BaseButton :label="t('showDetails')" class="mt-3 w-full md:mt-0 md:mx-3 md:w-3" @click="" />
+          <BaseButton :label="t('showDetails')" class="mt-3 w-full md:mt-0 md:mx-3 md:w-3 white-space-nowrap"
+            @click="goTODetails(contract.id)" />
         </div>
       </div>
     </div>
