@@ -14,5 +14,6 @@ export const translate = {
   notHaveContract: "شما قراردادی ندارید!!!",
   writeContract: "نوشتن قرارداد",
   clause: "بند {0}",
-  remark: "تبصره {0}"
+  remark: "تبصره {0}",
+  projectName: "داکیوساین"
 }

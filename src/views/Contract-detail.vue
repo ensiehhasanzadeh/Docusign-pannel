@@ -28,7 +28,7 @@ const { state: details, isLoading } = useAsyncState(async () => {
         :key="index">
         <div class="mt-2">{{ clause.content }}</div>
         <Accordion class="mt-3">
-          <AccordionTab :header="t('remark', [index + 1]) + ': ' + remark.title" v-for="remark, index in clause.remarks" :key="index">
+          <AccordionTab :header="t('remark', [index2 + 1]) + ': ' + remark.title" v-for="remark, index2 in clause.remarks" :key="index2">
             <div class="mt-2">{{ remark.content }}</div>
           </AccordionTab>
         </Accordion>

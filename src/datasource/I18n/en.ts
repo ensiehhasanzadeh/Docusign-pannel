@@ -14,5 +14,6 @@ export const translate = {
   notHaveContract:"You do not have a contract!!!",
   writeContract: "Writing contract",
   clause: "Clause {0}",
-  remark: "Remark {0}"
+  remark: "Remark {0}",
+  projectName: "Docusign"
 }
