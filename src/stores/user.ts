@@ -20,8 +20,8 @@ import { ref } from 'vue'
 import { useI18n } from "vue-i18n";
 
 export const useUserStore = defineStore('user', () => {
-  
-const { t } = useI18n();
+
+  const { t } = useI18n();
 
   /** توکن */
   const token = ref('')
@@ -45,10 +45,10 @@ const { t } = useI18n();
   }
 
   async function login(body: API_Auth_GetToken_Input) {
-    if(!body.username){
+    if (!body.username) {
       throw new Error(t('enterUsername'))
     }
-    if(!body.password){
+    if (!body.password) {
       throw new Error(t('enterPassword'))
     }
     const result = await API_User_Login(body)
@@ -61,13 +61,16 @@ const { t } = useI18n();
   }
 
   function resetPassword(body: API_Auth_ResetPassword_Input) {
-    if(!body.username){
+    if (!body.username) {
       throw new Error(t('enterUsername'))
     }
-    if(!body.phone_number){
+    if (!body.phone_number) {
       throw new Error(t('enterMobile'))
     }
-    return API_User_ResetPassword(body)
+    return API_User_ResetPassword({
+      username: body.username,
+      phone_number: '+98' + body.phone_number
+    })
   }
 
   function changePassword(body: API_Auth_ChangePassword_Input) {

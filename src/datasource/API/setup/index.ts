@@ -1,6 +1,7 @@
 import { useUserStore } from '@/stores/user'
 import { getDeferedPromise } from '@/utils'
 import Toast from 'primevue/toast';
+import { ToastServiceMethods } from 'primevue/toastservice';
 import { useToast } from 'primevue/usetoast';
 
 interface HttpMeta {
@@ -55,7 +56,7 @@ export async function httpRequest<T>(path: string, meta: HttpMeta = {}): Promise
     try {
       response = this.response
       if (this.status < 200 || this.status >= 400 || response?.status === 'error') {
-        deferred.reject(response.error || response)
+        deferred.reject(response)
       } else {
         deferred.resolve(response)
       }
@@ -93,7 +94,7 @@ export function httpGet<T>(api: string): Promise<T> {
   return httpRequest<T>(api)
 }
 
-export function handleCommonError(error: any, toast: Toast) {
-  console.error(error)
-  toast.add({ severity: 'error', summary: error.message, life: 3000 });
+export function handleCommonError(error: any, toast: ToastServiceMethods) {
+  const message = error.error || error.detail || error.message || 'خطایی رخ داده است'
+  toast.add({ severity: 'error', summary: message, life: 3000 });
 }

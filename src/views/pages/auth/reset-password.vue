@@ -30,7 +30,7 @@ async function ResetPassword() {
 
 function closeDialog() {
   display.value = false
-  router.push("/login")
+  router.push("/add-otp")
 }
 </script>
 
