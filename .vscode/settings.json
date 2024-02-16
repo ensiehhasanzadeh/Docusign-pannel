@@ -1,0 +1,9 @@
+{
+  "i18n-ally.localesPaths": [],
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#b35ff3",
+    "titleBar.activeForeground": "#000000",
+    "statusBar.background": "#b35ff3",
+    "statusBar.foreground": "#000000",
+  },
+}
