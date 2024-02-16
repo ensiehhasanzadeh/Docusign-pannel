@@ -12,5 +12,7 @@ export const translate = {
   contracts: "قرارداد ها",
   showDetails: "مشاهده جزئیات",
   notHaveContract: "شما قراردادی ندارید!!!",
-  writeContract: "نوشتن قرارداد"
+  writeContract: "نوشتن قرارداد",
+  clause: "بند {0}",
+  remark: "تبصره {0}"
 }

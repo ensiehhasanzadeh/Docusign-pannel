@@ -21,6 +21,18 @@ const { state: details, isLoading } = useAsyncState(async () => {
 
 <template>
   <div v-if="!isLoading" class="card w-full flex-grow-1 lg:mx-4">
-    <div>{{ details.title }}</div>
+    <div class="text-3xl font-bold mb-3">{{ details.title }}</div>
+    <div class="">{{ details.content }}</div>
+    <Accordion :activeIndex="1" class="mt-3">
+      <AccordionTab :header="t('clause', [index + 1]) + ': ' + clause.title" v-for="clause, index in details.clauses"
+        :key="index">
+        <div class="mt-2">{{ clause.content }}</div>
+        <Accordion :activeIndex="1" class="mt-3">
+          <AccordionTab :header="t('remark', [index + 1]) + ': ' + remark.title" v-for="remark, index in clause.remarks" :key="index">
+            <div class="mt-2">{{ remark.content }}</div>
+          </AccordionTab>
+        </Accordion>
+      </AccordionTab>
+    </Accordion>
   </div>
 </template>

@@ -12,5 +12,7 @@ export const translate = {
   contracts: "Contracts",
   showDetails: "Show details",
   notHaveContract:"You do not have a contract!!!",
-  writeContract: "Writing contract"
+  writeContract: "Writing contract",
+  clause: "Clause {0}",
+  remark: "Remark {0}"
 }
