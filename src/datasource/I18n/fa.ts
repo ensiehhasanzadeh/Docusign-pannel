@@ -42,5 +42,6 @@ export const translate = {
   enterFirstName: "لطفا نام خود را وارد کنید",
   enterLastName: "لطفا فامیل خود را وارد کنید",
   enterEmail: "لطفا ایمیل خود را وارد کنید",
-  enterOtp: "لطفا کد تاییدیه را وارد کنید"
+  enterOtp: "لطفا کد تاییدیه را وارد کنید",
+  logOut: "خروج از حساب"
 }

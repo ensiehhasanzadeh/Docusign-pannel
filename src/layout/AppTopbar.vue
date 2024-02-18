@@ -72,6 +72,10 @@ function openDialog() {
   isDialogOpen.value = true
 }
 
+async function logOut() {
+  await user.logOut()
+}
+
 </script>
 
 <template>
@@ -93,9 +97,12 @@ function openDialog() {
       <div class="flex flex-column align-items-center justify-items-center">
         <div class="text-xl">{{ userInfo.first_name + ' ' + userInfo.last_name }}</div>
         <div class="my-3">{{ userInfo.username }}</div>
-        <router-link to="/change-password">
-          <BaseButton :label="t('changePassword')" />
-        </router-link>
+        <div>
+          <router-link to="/change-password">
+            <BaseButton :label="t('changePassword')" />
+          </router-link>
+          <BaseButton class="ml-3" :label="t('logOut')" icon="pi pi-logout" :action="logOut" severity="danger" text />
+        </div>
       </div>
     </Dialog>
   </div>
