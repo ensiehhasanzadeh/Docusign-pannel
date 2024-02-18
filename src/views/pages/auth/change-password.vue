@@ -40,11 +40,11 @@ async function changePassword() {
           </div>
           <div>
             <label for="password1" class="block text-900 font-medium text-xl mb-2 mt-5">{{ t('currentPassword') }}</label>
-            <Password id="password1" v-model="oldPassword" :placeholder="t('currentPassword')" :toggleMask="true"
+            <Password id="password1" v-model="oldPassword" :feedback="false" :placeholder="t('currentPassword')" :toggleMask="true"
               class="w-full mb-5" inputClass="w-full" :inputStyle="{ padding: '1rem' }"></Password>
 
             <label for="password2" class="block text-900 font-medium text-xl mb-2">{{ t('newPassword') }}</label>
-            <Password id="password2" v-model="newPassword" :placeholder="t('newPassword')" :toggleMask="true"
+            <Password id="password2" v-model="newPassword" :feedback="false" :placeholder="t('newPassword')" :toggleMask="true"
               class="w-full mb-3 sm:mb-5" inputClass="w-full" :inputStyle="{ padding: '1rem' }"></Password>
             <BaseButton :label="t('confirm')" class="w-full p-3 text-xl" :action="changePassword" />
           </div>
