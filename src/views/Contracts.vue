@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseButton from '@/components/BaseButton.vue';
+import BaseLoading from '@/components/BaseLoading.vue';
 import { useContractStore } from '@/stores/contract';
 import { useAsyncState } from '@vueuse/core'
 import { computed } from 'vue';
@@ -48,6 +49,9 @@ function goTODetails(id: number) {
             @click="goTODetails(contract.id)" />
         </div>
       </div>
+    </div>
+    <div v-else class="flex-grow-1 flex align-items-center justify-items-center">
+      <BaseLoading class="mx-auto"/>
     </div>
   </div>
 </template>

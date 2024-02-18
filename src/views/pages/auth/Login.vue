@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import AppConfig from '@/layout/AppConfig.vue';
+import { ref } from 'vue'
+import AppConfig from '@/layout/AppConfig.vue'
 import { useI18n } from 'vue-i18n'
-import { useUserStore } from '@/stores/user';
-import { useRouter } from 'vue-router';
+import { useUserStore } from '@/stores/user'
+import { useRouter } from 'vue-router'
 import BaseButton from '@/components/BaseButton.vue'
 
 const { t } = useI18n()
 const user = useUserStore()
-const router = useRouter();
+const router = useRouter()
 
-const username = ref('');
-const password = ref('');
+const username = ref('')
+const password = ref('')
 
 async function login() {
   await user.login({
@@ -28,7 +28,7 @@ async function login() {
     <div class="flex flex-column align-items-center justify-content-center">
       <div
         style="border-radius: 56px; padding: 0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%)">
-        <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px">
+        <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px; max-width: 560px;">
           <div class="text-center mb-5">
             <img src="@/assets/images/ds.png" alt="Image" height="50" class="mb-3" />
             <div class="text-900 text-3xl font-medium mb-3">{{ t('welcome') }}!</div>
@@ -44,8 +44,8 @@ async function login() {
               class="w-full mb-3" inputClass="w-full" :inputStyle="{ padding: '1rem' }"></Password>
 
             <div class="flex align-items-center justify-content-between mb-5 gap-5">
-              <a class="font-medium no-underline ml-2 text-right cursor-pointer"
-                href="http://localhost:5173/#/auth/forgot-password" style="color: var(--primary-color)">{{
+              <a class="font-medium no-underline ml-2 text-right cursor-pointer" href="#/reset-password"
+                style="color: var(--primary-color)">{{
                   t('forgotPassword') }}</a>
             </div>
             <BaseButton :action="login" :label="t('signIn')" class="w-full p-3 text-xl"></BaseButton>

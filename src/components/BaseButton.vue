@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { handleCommonError } from '@/datasource/API/setup';
+import { useToast } from 'primevue/usetoast';
 import { computed, ref } from 'vue'
 
 const props = defineProps<{
@@ -10,6 +12,7 @@ const props = defineProps<{
 
 const innerLoading = ref(false)
 const generalLoading = computed(() => props.loading || innerLoading.value)
+const toast = useToast()
 
 const emit = defineEmits(['click', 'prev', 'next'])
 
@@ -23,7 +26,7 @@ function handleClick(e: MouseEvent) {
     if (result instanceof Promise) {
       innerLoading.value = true
       result
-        .catch(err => {})
+        .catch((err) => handleCommonError(err, toast))
         .finally(() => {
           innerLoading.value = false
         })
