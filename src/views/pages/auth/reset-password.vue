@@ -29,7 +29,7 @@ async function ResetPassword() {
 
 function closeDialog() {
   display.value = false
-  router.push("/add-otp")
+  router.push("/login")
 }
 </script>
 
@@ -64,7 +64,7 @@ function closeDialog() {
       </div>
     </div>
     <Dialog :header="t('PasswordRecovery')" v-model:visible="display" :modal="true" class="sm:w-30vm">
-      <p class="line-height-3 mt-5 text-xl text-blue-800">{{ t('sendOTPToN',[mobile]) }}</p>
+      <p class="line-height-3 mt-5 text-xl text-blue-800">{{ t('sendPasswordToN',[mobile]) }}</p>
       <template #footer>
         <div class="flex justify-content-center mt-3">
           <BaseButton :label="t('confirm')" :action="closeDialog" class="p-button-outlined" />
