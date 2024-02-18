@@ -14,7 +14,7 @@ import {
   API_User_SendOTP,
   Profile
 } from '@/datasource/API/UserAPI'
-import { KV_User_GetToken, KV_User_SetToken } from '@/datasource/KV/UserKV'
+import { KV_User_GetProfile, KV_User_GetToken, KV_User_SetProfile, KV_User_SetToken } from '@/datasource/KV/UserKV'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useI18n } from "vue-i18n";
@@ -44,6 +44,14 @@ export const useUserStore = defineStore('user', () => {
     return KV_User_SetToken(newToken)
   }
 
+  async function getProfile() {
+    return KV_User_GetProfile()
+  }
+
+  function setProfile(profile: Profile) {
+    return KV_User_SetProfile(profile)
+  }
+
   async function login(body: API_Auth_GetToken_Input) {
     if (!body.username) {
       throw new Error(t('enterUsername'))
@@ -53,6 +61,7 @@ export const useUserStore = defineStore('user', () => {
     }
     const result = await API_User_Login(body)
     setToken(result.token)
+    setProfile(result)
     return result
   }
 
@@ -93,6 +102,7 @@ export const useUserStore = defineStore('user', () => {
 
   return {
     getToken,
+    getProfile,
     login,
     register,
     resetPassword,

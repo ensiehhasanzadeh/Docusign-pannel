@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useLayout } from "@/layout/composables/layout"
 import { ref, computed } from "vue"
 import { useI18n } from "vue-i18n"
 import { useUserStore } from '@/stores/user'
 import BaseButton from "@/components/BaseButton.vue";
+import { useRouter } from "vue-router";
 
 const { t } = useI18n()
-const { layoutConfig } = useLayout()
 const user = useUserStore()
+const router = useRouter()
 
 const oldPassword = ref('')
 const newPassword = ref('')
@@ -17,6 +17,7 @@ async function changePassword() {
     old_password: oldPassword.value,
     new_password: newPassword.value,
   })
+  router.push('/')
 }
 </script>
 

@@ -61,7 +61,7 @@ export interface API_Auth_ChangePassword_Input {
 }
 
 export function API_User_ChangePassword(body: API_Auth_ChangePassword_Input) {
-  return httpRequest('/auth/change-password/', { body, method: 'POST' })
+  return httpRequest('/auth/change-password/', { body, method: 'POST', formData: true })
 }
 
 export interface API_Auth_SendOTP_Input {
