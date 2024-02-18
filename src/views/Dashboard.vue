@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { useContractStore } from "@/stores/contract";
 import { useUserStore } from "@/stores/user";
-import { useI18n } from "vue-i18n";
 
-const { t } = useI18n();
 const user = useUserStore();
 const contract = useContractStore();
 
@@ -31,7 +29,9 @@ async function contractList() {
     <router-link to="/login">
       <Button label="Login" class="m-2" />
     </router-link>
-    <Button label="Register" class="m-2" @click="register" />
+    <router-link to="/register">
+      <Button label="Register" class="m-2" />
+    </router-link>
     <router-link to="/change-password">
       <Button label="Change Password" class="m-2" />
     </router-link>

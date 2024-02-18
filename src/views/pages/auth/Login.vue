@@ -5,10 +5,12 @@ import { useI18n } from 'vue-i18n'
 import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
 import BaseButton from '@/components/BaseButton.vue'
+import { useToast } from 'primevue/usetoast';
 
 const { t } = useI18n()
 const user = useUserStore()
 const router = useRouter()
+const toast = useToast();
 
 const username = ref('')
 const password = ref('')
@@ -19,6 +21,7 @@ async function login() {
     password: password.value
   })
   router.push('/')
+  toast.add({ severity: 'success', summary: t('successLogin'), life: 3000 })
 }
 
 </script>
@@ -40,7 +43,7 @@ async function login() {
               style="padding: 1rem" v-model="username" />
 
             <label for="password1" class="block text-900 font-medium text-xl mb-2">{{ t('password') }}</label>
-            <Password id="password1" v-model="password" :placeholder="t('password')" :toggleMask="true"
+            <Password id="password1" v-model="password" :feedback="false" :placeholder="t('password')" :toggleMask="true"
               class="w-full mb-3" inputClass="w-full" :inputStyle="{ padding: '1rem' }"></Password>
 
             <div class="flex align-items-center justify-content-between mb-5 gap-5">
