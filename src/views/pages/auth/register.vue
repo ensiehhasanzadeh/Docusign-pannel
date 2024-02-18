@@ -33,7 +33,7 @@ async function signUp() {
     password: password.value
   })
   router.push('/')
-  toast.add({ severity: 'success', summary: t('success_login'), life: 3000 })
+  toast.add({ severity: 'success', summary: t('successLogin'), life: 3000 })
 }
 
 </script>
@@ -54,20 +54,20 @@ async function signUp() {
             <InputText id="username" type="text" :placeholder="t('username')" class="w-full md:w-30rem mb-5"
               style="padding: 1rem" v-model="userName" />
 
-            <label for="firsrName" class="block text-900 text-xl font-medium mb-2">{{ t('first_name') }}</label>
-            <InputText id="firsrName" type="text" :placeholder="t('first_name')" class="w-full md:w-30rem mb-5"
+            <label for="firsrName" class="block text-900 text-xl font-medium mb-2">{{ t('firstName') }}</label>
+            <InputText id="firsrName" type="text" :placeholder="t('firstName')" class="w-full md:w-30rem mb-5"
               style="padding: 1rem" v-model="firstName" />
 
-            <label for="lastName" class="block text-900 text-xl font-medium mb-2">{{ t('last_name') }}</label>
-            <InputText id="lastName" type="text" :placeholder="t('last_name')" class="w-full md:w-30rem mb-5"
+            <label for="lastName" class="block text-900 text-xl font-medium mb-2">{{ t('lastName') }}</label>
+            <InputText id="lastName" type="text" :placeholder="t('lastName')" class="w-full md:w-30rem mb-5"
               style="padding: 1rem" v-model="lastName" />
 
             <label for="email" class="block text-900 text-xl font-medium mb-2">{{ t('email') }}</label>
             <InputText id="email" type="email" :placeholder="t('email')" class="w-full md:w-30rem mb-5"
               style="padding: 1rem" v-model="email" />
 
-            <label for="mobile" class="block text-900 text-xl font-medium mb-2">{{ t('phone_number') }}</label>
-            <InputNumber id="mobile" v-model="phone_number" :placeholder="t('phone_number')" :useGrouping="false"
+            <label for="mobile" class="block text-900 text-xl font-medium mb-2">{{ t('phoneNumber') }}</label>
+            <InputNumber id="mobile" v-model="phone_number" :placeholder="t('phoneNumber')" :useGrouping="false"
               class="w-full mb-3" inputClass="w-full" :inputStyle="{ padding: '1rem' }" />
 
             <label for="password" class="block text-900 font-medium text-xl mb-2">{{ t('password') }}</label>

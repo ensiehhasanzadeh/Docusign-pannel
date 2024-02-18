@@ -21,7 +21,7 @@ async function login() {
     password: password.value
   })
   router.push('/')
-  toast.add({ severity: 'success', summary: t('success_login'), life: 3000 })
+  toast.add({ severity: 'success', summary: t('successLogin'), life: 3000 })
 }
 
 </script>

@@ -111,6 +111,9 @@ export const useUserStore = defineStore('user', () => {
   }
 
   function sendOtp(body: API_Auth_SendOTP_Input) {
+    if (!body.reason) {
+      throw new Error(t('enterOtp'))
+    }
     return API_User_SendOTP(body)
   }
 

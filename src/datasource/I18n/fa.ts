@@ -34,12 +34,12 @@ export const translate = {
   newPassword: "رمز عبور جدید",
   enterOldPassword: "لطفا رمز عبور فعلی خود را وارد کنید",  
   enterNewPassword: "لطفا رمز عبور جدید را وارد کنید",
-  phone_number: "شماره موبایل",
-  first_name: "نام",
-  last_name: "نام خانوادگی",
+  firstName: "نام",
+  lastName: "نام خانوادگی",
   email: "ایمیل",
-  success_login: "با موفقیت وارد شدید",
+  successLogin: "با موفقیت وارد شدید",
   enterFirstName: "لطفا نام خود را وارد کنید",
   enterLastName: "لطفا فامیل خود را وارد کنید",
   enterEmail: "لطفا ایمیل خود را وارد کنید",
+  enterOtp: "لطفا کد تاییدیه را وارد کنید"
 }
