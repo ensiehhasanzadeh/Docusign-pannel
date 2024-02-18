@@ -27,8 +27,8 @@ export interface API_Auth_Register_Input {
   first_name: string
   last_name: string
   email: string
-  ver_id: number
-  ver_code: number
+  ver_id?: 24
+  ver_code?: 1111111
 }
 
 export interface API_Auth_Register_Output {

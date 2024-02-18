@@ -11,6 +11,7 @@ export const translate = {
   rememberMe: "مرا به خاطر بسپار",
   forgotPassword: "رمز عبور را فراموش کرده‌اید؟",
   signIn: "ورود",
+  signUp: "ثبت نام",
   confirm: "تایید",
   phoneNumber: "شماره موبایل",
   PasswordRecovery: "بازیابی رمز عبور",
@@ -32,5 +33,13 @@ export const translate = {
   currentPassword: "رمز عبور فعلی",
   newPassword: "رمز عبور جدید",
   enterOldPassword: "لطفا رمز عبور فعلی خود را وارد کنید",  
-  enterNewPassword: "لطفا رمز عبور جدید را وارد کنید"
+  enterNewPassword: "لطفا رمز عبور جدید را وارد کنید",
+  phone_number: "شماره موبایل",
+  first_name: "نام",
+  last_name: "نام خانوادگی",
+  email: "ایمیل",
+  success_login: "با موفقیت وارد شدید",
+  enterFirstName: "لطفا نام خود را وارد کنید",
+  enterLastName: "لطفا فامیل خود را وارد کنید",
+  enterEmail: "لطفا ایمیل خود را وارد کنید",
 }

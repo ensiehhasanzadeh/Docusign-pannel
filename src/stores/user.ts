@@ -66,6 +66,24 @@ export const useUserStore = defineStore('user', () => {
   }
 
   function register(body: API_Auth_Register_Input) {
+    if (!body.username) {
+      throw new Error(t('enterUsername'))
+    }
+    if (!body.first_name) {
+      throw new Error(t('enterFirstName'))
+    }
+    if (!body.last_name) {
+      throw new Error(t('enterLastName'))
+    }
+    if (!body.email) {
+      throw new Error(t('enterEmail'))
+    }
+    if (!body.phone_number) {
+      throw new Error(t('enterMobile'))
+    }
+    if (!body.password) {
+      throw new Error(t('enterPassword'))
+    }
     return API_User_Register(body)
   }
 

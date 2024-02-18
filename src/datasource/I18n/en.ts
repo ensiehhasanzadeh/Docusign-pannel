@@ -11,6 +11,7 @@ export const translate = {
   rememberMe: "Remember me",
   forgotPassword: "Forgot password?",
   signIn: "Sign in",
+  signUp: "Sign up",
   confirm: "Confirm",
   phoneNumber: "Phone number",
   PasswordRecovery: "Password recovery",
@@ -32,5 +33,13 @@ export const translate = {
   currentPassword: "Current password",
   newPassword: "New password",
   enterOldPassword: "Please enter your current password",  
-  enterNewPassword: "Please enter new password"
+  enterNewPassword: "Please enter new password",
+  phone_number: "Phone number",
+  first_name: "First name",
+  last_name: "Last name",
+  email: "Email",
+  success_login: "You have successfully logged in",
+  enterFirstName: "Please enter your first name",
+  enterLastName: "Please enter your last name",
+  enterEmail: "Please enter your email",
 }
