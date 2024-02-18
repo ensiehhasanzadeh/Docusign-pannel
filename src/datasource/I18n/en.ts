@@ -26,6 +26,7 @@ export const translate = {
   language: "English",
   resetPasswordDescription: "Enter your username and mobile number to send the verification code",
   sendOTPToN: "The confirmation code was sent to {0}",
+  sendPasswordToN: "The password was sent to {0}",
   enterUsername: "Please enter your username",
   enterPassword: "Please enter your password",
   enterMobile: "Please enter your mobile",

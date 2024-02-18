@@ -66,7 +66,7 @@ export function API_User_ChangePassword(body: API_Auth_ChangePassword_Input) {
 
 export interface API_Auth_SendOTP_Input {
   /** دلیل */
-  reason: 2
+  reason: number
 }
 
 export interface API_Auth_SendOTP_Output {

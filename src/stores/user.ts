@@ -110,11 +110,8 @@ export const useUserStore = defineStore('user', () => {
     return API_User_ChangePassword(body)
   }
 
-  function sendOtp(body: API_Auth_SendOTP_Input) {
-    if (!body.reason) {
-      throw new Error(t('enterOtp'))
-    }
-    return API_User_SendOTP(body)
+  function sendOtp() {
+    return API_User_SendOTP({reason: 2})
   }
 
   function phoneVerification(body: API_Auth_PhoneVerification_Input) {
