@@ -42,5 +42,6 @@ export const translate = {
   enterFirstName: "Please enter your first name",
   enterLastName: "Please enter your last name",
   enterEmail: "Please enter your email",
-  enterOtp: "Please enter OTP code"
+  enterOtp: "Please enter OTP code",
+  logOut: "Sign out of the account"
 }

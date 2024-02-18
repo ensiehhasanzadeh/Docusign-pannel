@@ -1,5 +1,5 @@
 import { Profile } from '../API/UserAPI'
-import { getKeyValue, setKeyValue } from './setup'
+import { getKeyValue, setKeyValue, clearAllKeys } from './setup'
 
 /**
  * ذخیره توکن در IndexedDB
@@ -29,4 +29,11 @@ export function KV_User_SetProfile(profile: Profile) {
  */
 export function KV_User_GetProfile(): Promise<Profile> {
   return getKeyValue('profile')
+}
+
+/**
+ *  ذخیره پروفایل در IndexedDB
+ */
+export function KV_User_Clear() {
+  return clearAllKeys()
 }
