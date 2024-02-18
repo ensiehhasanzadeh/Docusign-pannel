@@ -1,8 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { useLayout } from '@/layout/composables/layout';
 import { computed } from 'vue';
 import AppConfig from '@/layout/AppConfig.vue';
+import LanguageButton from '@/components/LanguageButton.vue';
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const { layoutConfig } = useLayout();
 
 const smoothScroll = (id) => {
@@ -20,7 +23,7 @@ const logoUrl = computed(() => {
     <div class="surface-0 flex justify-content-center">
         <div id="home" class="landing-wrapper overflow-hidden">
             <div class="py-4 px-4 mx-0 md:mx-6 lg:mx-8 lg:px-8 flex align-items-center justify-content-between relative lg:static mb-3">
-                <a class="flex align-items-center" href="#"> <img :src="logoUrl" alt="Sakai Logo" height="50" class="mr-0 lg:mr-2" /><span class="text-900 font-medium text-2xl line-height-3 mr-8">SAKAI</span> </a>
+                <a class="flex align-items-center" href="#"> <img src="@/assets/images/ds.png" alt="Sakai Logo" height="50" class="mr-0 lg:mr-2" /><span class="text-900 font-medium text-2xl line-height-3 mr-8">DocuSign</span> </a>
                 <a class="cursor-pointer block lg:hidden text-700 p-ripple" v-ripple v-styleclass="{ selector: '@next', enterClass: 'hidden', leaveToClass: 'hidden', hideOnOutsideClick: true }">
                     <i class="pi pi-bars text-4xl"></i>
                 </a>
@@ -28,28 +31,27 @@ const logoUrl = computed(() => {
                     <ul class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row cursor-pointer">
                         <li>
                             <a @click="smoothScroll('#hero')" class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 p-ripple" v-ripple>
-                                <span>Home</span>
+                                <span>{{ t('home') }}</span>
                             </a>
                         </li>
                         <li>
                             <a @click="smoothScroll('#features')" class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 p-ripple" v-ripple>
-                                <span>Features</span>
+                                <span>{{ t('faq')}}</span>
                             </a>
                         </li>
                         <li>
-                            <a @click="smoothScroll('#highlights')" class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 p-ripple" v-ripple>
-                                <span>Highlights</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a @click="smoothScroll('#pricing')" class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 p-ripple" v-ripple>
-                                <span>Pricing</span>
+                            <a @click="smoothScroll('#features')" class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 p-ripple" v-ripple>
+                                <span>{{ t('contactUs')}}</span>
                             </a>
                         </li>
                     </ul>
                     <div class="flex justify-content-between lg:block border-top-1 lg:border-top-none surface-border py-3 lg:py-0 mt-3 lg:mt-0">
-                        <Button label="Login" class="p-button-text p-button-rounded border-none font-light line-height-2 text-blue-500"></Button>
-                        <Button label="Register" class="p-button-rounded border-none ml-5 font-light text-white line-height-2 bg-blue-500"></Button>
+                        <router-link to="/login">
+                            <Button :label="t('signIn')" class="p-button-text p-button-rounded border-none font-light line-height-2 text-blue-500"></Button>
+                        </router-link>
+                        <router-link to="/register">
+                            <Button :label="t('register')" class="p-button-text p-button-rounded border-none font-light line-height-2 text-blue-500"></Button>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -60,20 +62,19 @@ const logoUrl = computed(() => {
                 style="background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, rgb(238, 239, 175) 0%, rgb(195, 227, 250) 100%); clip-path: ellipse(150% 87% at 93% 13%)"
             >
                 <div class="mx-4 md:mx-8 mt-0 md:mt-4">
-                    <h1 class="text-6xl font-bold text-gray-900 line-height-2"><span class="font-light block">Eu sem integer</span>eget magna fermentum</h1>
-                    <p class="font-normal text-2xl line-height-3 md:mt-3 text-gray-700">Sed blandit libero volutpat sed cras. Fames ac turpis egestas integer. Placerat in egestas erat...</p>
-                    <Button label="Get Started" class="p-button-rounded text-xl border-none mt-5 bg-blue-500 font-normal text-white line-height-3 px-3"></Button>
+                    <h2 class="font-bold text-gray-900 line-height-2">داکیوساین</h2>
+                    <p class="font-normal text-2xl line-height-3 mt-3 md:mt-5 text-gray-700">{{  t('docusignDescription') }}</p>
                 </div>
-                <div class="flex justify-content-center md:justify-content-end">
-                    <img src="/demo/images/landing/screen-1.png" alt="Hero Image" class="w-9 md:w-auto" />
+                <div class="flex justify-content-center md:justify-content-end mt-3 md:mt-5">
+                    <img src="@/assets/images/contract.jpg" alt="Hero Image" class="w-9 h-9 sm:h-5 sm:w-5" />
                 </div>
             </div>
 
             <div id="features" class="py-4 px-4 lg:px-8 mt-5 mx-0 lg:mx-8">
                 <div class="grid justify-content-center">
                     <div class="col-12 text-center mt-8 mb-4">
-                        <h2 class="text-900 font-normal mb-2">Marvelous Features</h2>
-                        <span class="text-600 text-2xl">Placerat in egestas erat...</span>
+                        <h2 class="text-900 font-normal mb-2">{{  t('howDSWork') }}</h2>
+                        <span class="text-600 text-2xl">{{ t('dsBenefits')}}</span>
                     </div>
 
                     <div class="col-12 md:col-12 lg:col-4 p-0 lg:pr-5 lg:pb-5 mt-4 lg:mt-0">
@@ -82,10 +83,10 @@ const logoUrl = computed(() => {
                         >
                             <div class="p-3 surface-card h-full" style="border-radius: 8px">
                                 <div class="flex align-items-center justify-content-center bg-yellow-200 mb-3" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                                    <i class="pi pi-fw pi-users text-2xl text-yellow-700"></i>
+                                    <i class="pi pi-fw pi-globe text-2xl text-yellow-700"></i>
                                 </div>
-                                <h5 class="mb-2 text-900">Easy to Use</h5>
-                                <span class="text-600">Posuere morbi leo urna molestie.</span>
+                                <h5 class="mb-2 text-900">{{ t('smart') }}</h5>
+                                <span class="text-600">تشخیص خوردکار تغییر در قراردادها</span>
                             </div>
                         </div>
                     </div>
@@ -96,10 +97,10 @@ const logoUrl = computed(() => {
                         >
                             <div class="p-3 surface-card h-full" style="border-radius: 8px">
                                 <div class="flex align-items-center justify-content-center bg-cyan-200 mb-3" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                                    <i class="pi pi-fw pi-palette text-2xl text-cyan-700"></i>
+                                    <i class="pi pi-fw pi-fast-forward text-2xl text-cyan-700"></i>
                                 </div>
-                                <h5 class="mb-2 text-900">Fresh Design</h5>
-                                <span class="text-600">Semper risus in hendrerit.</span>
+                                <h5 class="mb-2 text-900">{{ t('fast') }}</h5>
+                                <span class="text-600">در عرض چند دقیقه قرارداد خود را تنظیم کنید</span>
                             </div>
                         </div>
                     </div>
@@ -110,10 +111,10 @@ const logoUrl = computed(() => {
                         >
                             <div class="p-3 surface-card h-full" style="border-radius: 8px">
                                 <div class="flex align-items-center justify-content-center bg-indigo-200" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                                    <i class="pi pi-fw pi-map text-2xl text-indigo-700"></i>
+                                    <i class="pi pi-fw pi-thumbs-up text-2xl text-indigo-700"></i>
                                 </div>
-                                <h5 class="mb-2 text-900">Well Documented</h5>
-                                <span class="text-600">Non arcu risus quis varius quam quisque.</span>
+                                <h5 class="mb-2 text-900">{{ t('accurate') }}</h5>
+                                <span class="text-600">تنظیم دقیق قرارداد با نظارت طرفین</span>
                             </div>
                         </div>
                     </div>
@@ -124,10 +125,10 @@ const logoUrl = computed(() => {
                         >
                             <div class="p-3 surface-card h-full" style="border-radius: 8px">
                                 <div class="flex align-items-center justify-content-center bg-bluegray-200 mb-3" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                                    <i class="pi pi-fw pi-id-card text-2xl text-bluegray-700"></i>
+                                    <i class="pi pi-fw pi-dollar text-2xl text-bluegray-700"></i>
                                 </div>
-                                <h5 class="mb-2 text-900">Responsive Layout</h5>
-                                <span class="text-600">Nulla malesuada pellentesque elit.</span>
+                                <h5 class="mb-2 text-900">{{ t('economic') }}</h5>
+                                <span class="text-600">هزینه کمتر در وقت و هزینه برای تنظیم قرارداد</span>
                             </div>
                         </div>
                     </div>
@@ -138,10 +139,10 @@ const logoUrl = computed(() => {
                         >
                             <div class="p-3 surface-card h-full" style="border-radius: 8px">
                                 <div class="flex align-items-center justify-content-center bg-orange-200 mb-3" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                                    <i class="pi pi-fw pi-star text-2xl text-orange-700"></i>
+                                    <i class="pi pi-fw pi-lock text-2xl text-orange-700"></i>
                                 </div>
-                                <h5 class="mb-2 text-900">Clean Code</h5>
-                                <span class="text-600">Condimentum lacinia quis vel eros.</span>
+                                <h5 class="mb-2 text-900">{{ t('unchangeable') }}</h5>
+                                <span class="text-600">در صورت تغییر دوطرف از آن آگاه و در صورت تایید تغییر پیدا می‌کند</span>
                             </div>
                         </div>
                     </div>
@@ -152,67 +153,11 @@ const logoUrl = computed(() => {
                         >
                             <div class="p-3 surface-card h-full" style="border-radius: 8px">
                                 <div class="flex align-items-center justify-content-center bg-pink-200 mb-3" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                                    <i class="pi pi-fw pi-moon text-2xl text-pink-700"></i>
+                                    <i class="pi pi-fw pi-home text-2xl text-pink-700"></i>
                                 </div>
-                                <h5 class="mb-2 text-900">Dark Mode</h5>
-                                <span class="text-600">Convallis tellus id interdum velit laoreet.</span>
+                                <h5 class="mb-2 text-900">{{ t('available') }}</h5>
+                                <span class="text-600">همیشه و در همه لحظه در دسترس</span>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 md:col-12 lg:col-4 p-0 lg:pr-5 mt-4 lg:mt-0">
-                        <div
-                            style="height: 160px; padding: 2px; border-radius: 10px; background: linear-gradient(90deg, rgba(145, 210, 204, 0.2), rgba(160, 210, 250, 0.2)), linear-gradient(180deg, rgba(187, 199, 205, 0.2), rgba(145, 210, 204, 0.2))"
-                        >
-                            <div class="p-3 surface-card h-full" style="border-radius: 8px">
-                                <div class="flex align-items-center justify-content-center bg-teal-200 mb-3" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                                    <i class="pi pi-fw pi-shopping-cart text-2xl text-teal-700"></i>
-                                </div>
-                                <h5 class="mb-2 text-900">Ready to Use</h5>
-                                <span class="text-600">Mauris sit amet massa vitae.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 md:col-12 lg:col-4 p-0 lg:pr-5 mt-4 lg:mt-0">
-                        <div
-                            style="height: 160px; padding: 2px; border-radius: 10px; background: linear-gradient(90deg, rgba(145, 210, 204, 0.2), rgba(212, 162, 221, 0.2)), linear-gradient(180deg, rgba(251, 199, 145, 0.2), rgba(160, 210, 250, 0.2))"
-                        >
-                            <div class="p-3 surface-card h-full" style="border-radius: 8px">
-                                <div class="flex align-items-center justify-content-center bg-blue-200 mb-3" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                                    <i class="pi pi-fw pi-globe text-2xl text-blue-700"></i>
-                                </div>
-                                <h5 class="mb-2 text-900">Modern Practices</h5>
-                                <span class="text-600">Elementum nibh tellus molestie nunc non.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 md:col-12 lg:col-4 p-0 lg-4 mt-4 lg:mt-0">
-                        <div
-                            style="height: 160px; padding: 2px; border-radius: 10px; background: linear-gradient(90deg, rgba(160, 210, 250, 0.2), rgba(212, 162, 221, 0.2)), linear-gradient(180deg, rgba(246, 158, 188, 0.2), rgba(212, 162, 221, 0.2))"
-                        >
-                            <div class="p-3 surface-card h-full" style="border-radius: 8px">
-                                <div class="flex align-items-center justify-content-center bg-purple-200 mb-3" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
-                                    <i class="pi pi-fw pi-eye text-2xl text-purple-700"></i>
-                                </div>
-                                <h5 class="mb-2 text-900">Privacy</h5>
-                                <span class="text-600">Neque egestas congue quisque.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="col-12 mt-8 mb-8 p-2 md:p-8"
-                        style="border-radius: 20px; background: linear-gradient(0deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, #efe1af 0%, #c3dcfa 100%)"
-                    >
-                        <div class="flex flex-column justify-content-center align-items-center text-center px-3 py-3 md:py-0">
-                            <h3 class="text-gray-900 mb-2">Joséphine Miller</h3>
-                            <span class="text-gray-600 text-2xl">Peak Interactive</span>
-                            <p class="text-gray-900 sm:line-height-2 md:line-height-4 text-2xl mt-4" style="max-width: 800px">
-                                “Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.”
-                            </p>
-                            <img src="/demo/images/landing/peak-logo.svg" class="mt-4" alt="Company logo" />
                         </div>
                     </div>
                 </div>
@@ -220,8 +165,8 @@ const logoUrl = computed(() => {
 
             <div id="highlights" class="py-4 px-4 lg:px-8 mx-0 my-6 lg:mx-8">
                 <div class="text-center">
-                    <h2 class="text-900 font-normal mb-2">Powerful Everywhere</h2>
-                    <span class="text-600 text-2xl">Amet consectetur adipiscing elit...</span>
+                    <h2 class="text-900 font-normal mb-2">ایجاد قرارداد</h2>
+                    <span class="text-600 text-2xl">چگونه قرارداد خود را ایجاد کنیم؟</span>
                 </div>
 
                 <div class="grid mt-8 pb-2 md:pb-8">
@@ -360,11 +305,12 @@ const logoUrl = computed(() => {
             </div>
 
             <div class="py-4 px-4 mx-0 mt-8 lg:mx-8">
+                <hr class="mb-5">
                 <div class="grid justify-content-between">
                     <div class="col-12 md:col-2" style="margin-top: -1.5rem">
                         <a @click="smoothScroll('#home')" class="flex flex-wrap align-items-center justify-content-center md:justify-content-start md:mb-0 mb-3 cursor-pointer">
-                            <img :src="logoUrl" alt="footer sections" width="50" height="50" class="mr-2" />
-                            <h4 class="font-medium text-3xl text-900">SAKAI</h4>
+                            <img src="@/assets/images/ds.png" alt="Sakai Logo" height="50" class="mr-0 lg:mr-2" />
+                            <h4 class="font-medium text-3xl text-900">Docusign</h4>
                         </a>
                     </div>
 
