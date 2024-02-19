@@ -101,7 +101,7 @@ async function logOut() {
           <router-link to="/change-password">
             <BaseButton :label="t('changePassword')" />
           </router-link>
-          <BaseButton class="ml-3" :label="t('logOut')" icon="pi pi-logout" :action="logOut" severity="danger" text />
+          <BaseButton class="ml-3" :label="t('logOut')" :action="logOut" severity="danger" text />
         </div>
       </div>
     </Dialog>

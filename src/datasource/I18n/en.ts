@@ -57,5 +57,13 @@ export const translate = {
   enterLastName: "Please enter your last name",
   enterEmail: "Please enter your email",
   enterOtp: "Please enter OTP code",
-  logOut: "Sign out of the account"
+  logOut: "Sign out of the account",
+  contractTitle: "Contract title",
+  contractContent: "Contract content",
+  clauseTitle: "Clause title",
+  clauseContent: "Clause content",
+  remarkTitle: "Remark title",
+  remarkContent: "Remark content",
+  writeNewClause: "Writing new clause",
+  writeNewRemark: "Writing new remark"
 }

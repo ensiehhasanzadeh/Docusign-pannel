@@ -22,7 +22,9 @@ export const useContractStore = defineStore('contract', () => {
   }
 
   function create(body: API_Contract_Create_Input) {
-    return API_Contract_Create(body)
+    console.log(body);
+    
+    return API_Contract_Create(JSON.parse(JSON.stringify(body)))
   }
 
   function deleteContract(body: API_Contract_Delete_Input) {

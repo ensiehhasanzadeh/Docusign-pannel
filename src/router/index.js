@@ -33,6 +33,14 @@ const router = createRouter({
             public: false,
           },
         },
+        {
+          path: '/create-contract',
+          name: 'create-contract',
+          component: () => import('@/views/Create-contract.vue'),
+          meta: {
+            public: false,
+          },
+        },
       ],
     },
     {

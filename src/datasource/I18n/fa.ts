@@ -57,5 +57,13 @@ export const translate = {
   enterLastName: "لطفا فامیل خود را وارد کنید",
   enterEmail: "لطفا ایمیل خود را وارد کنید",
   enterOtp: "لطفا کد تاییدیه را وارد کنید",
-  logOut: "خروج از حساب"
+  logOut: "خروج از حساب",
+  contractTitle: "عنوان قرارداد",
+  contractContent: "متن قرارداد",
+  clauseTitle: "عنوان بند",
+  clauseContent: "متن بند",
+  remarkTitle: "عنوان تبصره",
+  remarkContent: "متن تبصره",
+  writeNewClause: "نوشتن بند جدید",
+  writeNewRemark: "نوشتن تبصره جدید"
 }
