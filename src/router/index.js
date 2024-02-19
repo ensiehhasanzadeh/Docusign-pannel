@@ -26,6 +26,14 @@ const router = createRouter({
           },
         },
         {
+          path: '/others',
+          name: 'others',
+          component: () => import('@/views/Others.vue'),
+          meta: {
+            public: false,
+          },
+        },
+        {
           path: '/contract-detail/:id',
           name: 'contract-detail',
           component: () => import('@/views/Contract-detail.vue'),
