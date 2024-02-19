@@ -26,6 +26,9 @@ async function contractList() {
 
 <template>
   <div>
+    <router-link to="/landing">
+      <Button label="landing" class="m-2" />
+    </router-link>
     <router-link to="/login">
       <Button label="Login" class="m-2" />
     </router-link>
