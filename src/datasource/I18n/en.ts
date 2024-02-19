@@ -46,4 +46,5 @@ export const translate = {
   economic: "Economic",
   unchangeable: "Unchangeable",
   available: "Available",
+  test: "Test"
 }

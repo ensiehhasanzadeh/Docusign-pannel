@@ -46,4 +46,5 @@ export const translate = {
   economic: "اقتصادی",
   unchangeable: "غیر قابل تغییر",
   available: "در دسترس",
+  test: "تست"
 }
