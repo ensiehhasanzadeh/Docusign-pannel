@@ -28,7 +28,7 @@ function goTODetails(id: number) {
 </script>
 
 <template>
-  <div class="flex flex-column px-3">
+  <div class="flex flex-column px-3 flex-grow-1">
     <div class="text-3xl mb-4">{{ t('contracts') }}</div>
     <div v-if="!isLoading">
       <div v-if="isListEmpty" class="card flex flex-column align-items-center justify-items-center">

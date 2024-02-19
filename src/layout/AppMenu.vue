@@ -11,7 +11,6 @@ const model = computed(() => [
     label: t('projectName'),
     items: [
       { label: t('dashboard'), icon: 'pi pi-fw pi-home', to: '/' },
-      { label: t('profile'), icon: 'pi pi-fw pi-id-card', to: '/profile' },
       { label: t('contracts'), icon: 'pi pi-fw pi-file', to: '/contracts' },
     ]
   },

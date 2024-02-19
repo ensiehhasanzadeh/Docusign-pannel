@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useLayout } from "@/layout/composables/layout"
 import { ref, computed } from "vue"
 import { useI18n } from "vue-i18n"
 import { useUserStore } from '@/stores/user'
 import BaseButton from "@/components/BaseButton.vue";
+import { useRouter } from "vue-router";
 
 const { t } = useI18n()
-const { layoutConfig } = useLayout()
 const user = useUserStore()
+const router = useRouter()
 
 const oldPassword = ref('')
 const newPassword = ref('')
@@ -17,6 +17,7 @@ async function changePassword() {
     old_password: oldPassword.value,
     new_password: newPassword.value,
   })
+  router.push('/')
 }
 </script>
 
@@ -39,11 +40,11 @@ async function changePassword() {
           </div>
           <div>
             <label for="password1" class="block text-900 font-medium text-xl mb-2 mt-5">{{ t('currentPassword') }}</label>
-            <Password id="password1" v-model="oldPassword" :placeholder="t('currentPassword')" :toggleMask="true"
+            <Password id="password1" v-model="oldPassword" :feedback="false" :placeholder="t('currentPassword')" :toggleMask="true"
               class="w-full mb-5" inputClass="w-full" :inputStyle="{ padding: '1rem' }"></Password>
 
             <label for="password2" class="block text-900 font-medium text-xl mb-2">{{ t('newPassword') }}</label>
-            <Password id="password2" v-model="newPassword" :placeholder="t('newPassword')" :toggleMask="true"
+            <Password id="password2" v-model="newPassword" :feedback="false" :placeholder="t('newPassword')" :toggleMask="true"
               class="w-full mb-3 sm:mb-5" inputClass="w-full" :inputStyle="{ padding: '1rem' }"></Password>
             <BaseButton :label="t('confirm')" class="w-full p-3 text-xl" :action="changePassword" />
           </div>

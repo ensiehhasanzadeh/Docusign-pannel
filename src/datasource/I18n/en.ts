@@ -11,6 +11,7 @@ export const translate = {
   rememberMe: "Remember me",
   forgotPassword: "Forgot password?",
   signIn: "Sign in",
+  signUp: "Sign up",
   confirm: "Confirm",
   phoneNumber: "Phone number",
   PasswordRecovery: "Password recovery",
@@ -25,6 +26,7 @@ export const translate = {
   language: "English",
   resetPasswordDescription: "Enter your username and mobile number to send the verification code",
   sendOTPToN: "The confirmation code was sent to {0}",
+  sendPasswordToN: "The password was sent to {0}",
   enterUsername: "Please enter your username",
   enterPassword: "Please enter your password",
   enterMobile: "Please enter your mobile",
@@ -46,5 +48,14 @@ export const translate = {
   economic: "Economic",
   unchangeable: "Unchangeable",
   available: "Available",
-  test: "Test"
+  test: "Test",
+  firstName: "First name",
+  lastName: "Last name",
+  email: "Email",
+  successLogin: "You have successfully logged in",
+  enterFirstName: "Please enter your first name",
+  enterLastName: "Please enter your last name",
+  enterEmail: "Please enter your email",
+  enterOtp: "Please enter OTP code",
+  logOut: "Sign out of the account"
 }

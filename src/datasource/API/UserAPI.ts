@@ -27,8 +27,8 @@ export interface API_Auth_Register_Input {
   first_name: string
   last_name: string
   email: string
-  ver_id: number
-  ver_code: number
+  ver_id?: 24
+  ver_code?: 1111111
 }
 
 export interface API_Auth_Register_Output {
@@ -61,12 +61,12 @@ export interface API_Auth_ChangePassword_Input {
 }
 
 export function API_User_ChangePassword(body: API_Auth_ChangePassword_Input) {
-  return httpRequest('/auth/change-password/', { body, method: 'POST' })
+  return httpRequest('/auth/change-password/', { body, method: 'POST', formData: true })
 }
 
 export interface API_Auth_SendOTP_Input {
   /** دلیل */
-  reason: 2
+  reason: number
 }
 
 export interface API_Auth_SendOTP_Output {

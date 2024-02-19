@@ -11,6 +11,7 @@ export const translate = {
   rememberMe: "مرا به خاطر بسپار",
   forgotPassword: "رمز عبور را فراموش کرده‌اید؟",
   signIn: "ورود",
+  signUp: "ثبت نام",
   confirm: "تایید",
   phoneNumber: "شماره موبایل",
   PasswordRecovery: "بازیابی رمز عبور",
@@ -25,6 +26,7 @@ export const translate = {
   language: "فارسی",
   resetPasswordDescription: "برای ارسال کد تاییدیه، نام کاربری و شماره موبایل خود را وارد کنید",
   sendOTPToN: "کد تاییدیه به شماره {0} ارسال شد",
+  sendPasswordToN: "رمز عبور به شماره {0} ارسال شد",
   enterUsername: "لطفا نام کاربری خود را وارد کنید",
   enterPassword: "لطفا رمز عبور خود را وارد کنید",
   enterMobile: "لطفا شماره موبایل خود را وارد کنید",
@@ -46,5 +48,14 @@ export const translate = {
   economic: "اقتصادی",
   unchangeable: "غیر قابل تغییر",
   available: "در دسترس",
-  test: "تست"
+  test: "تست",
+  firstName: "نام",
+  lastName: "نام خانوادگی",
+  email: "ایمیل",
+  successLogin: "با موفقیت وارد شدید",
+  enterFirstName: "لطفا نام خود را وارد کنید",
+  enterLastName: "لطفا فامیل خود را وارد کنید",
+  enterEmail: "لطفا ایمیل خود را وارد کنید",
+  enterOtp: "لطفا کد تاییدیه را وارد کنید",
+  logOut: "خروج از حساب"
 }

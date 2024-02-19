@@ -8,6 +8,9 @@ const props = defineProps<{
   action?: (e: MouseEvent) => any,
   disabled?: boolean
   loading?: boolean
+  icon?: string
+  severity?: string
+  text?: boolean
 }>()
 
 const innerLoading = ref(false)
@@ -37,5 +40,5 @@ function handleClick(e: MouseEvent) {
 </script>
 
 <template>
-  <Button :label="label" @click="handleClick" :loading="generalLoading"></Button>
+  <Button :label="label" :icon="icon" @click="handleClick" :loading="generalLoading" :severity="severity" :text="text" />
 </template>

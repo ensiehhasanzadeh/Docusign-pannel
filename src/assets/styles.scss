@@ -11,8 +11,27 @@ $gutter: 1rem; //for primeflex grid system
 /* Demos */
 @import '@/assets/demo/demo.scss';
 
+@import '@/assets/fonts/vazir.css';
+
 body {
   direction: ltr;
+}
+
+body,
+.p-datatable-table,
+.p-button,
+.p-inputtext,
+.p-dialog,
+.p-toast,
+.p-paginator-pages button,
+.p-dropdown-panel,
+.layout-topbar-button,
+.p-hour-picker,
+.p-minute-picker,
+.p-tooltip,
+.vpd-main input,
+.vpd-actions button {
+  font-family: 'Vazir', sans-serif;
 }
 
 .p-paginator-last,
