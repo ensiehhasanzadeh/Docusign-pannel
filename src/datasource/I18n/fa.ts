@@ -57,5 +57,6 @@ export const translate = {
   enterLastName: "لطفا فامیل خود را وارد کنید",
   enterEmail: "لطفا ایمیل خود را وارد کنید",
   enterOtp: "لطفا کد تاییدیه را وارد کنید",
-  logOut: "خروج از حساب"
+  logOut: "خروج از حساب",
+  other: "متفرقه",
 }
